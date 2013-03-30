@@ -1,0 +1,25 @@
+<!--comments here.-->
+{% extends "base.html" %}
+{% block user_script %} {% endblock %}
+{% block user_css %} {% endblock %}
+<title>{% block title %} {% endblock %}</title>
+{% block header %} {% include "header.html" %}  {% endblock %}
+{% block content %}
+	<div class="block_head">
+		<div class="bheadl"></div>
+		<div class="bheadr"></div>
+		<h2>进销存简易版</h2>
+		<ul>
+			<li><a href="javascript:do_query();"> 执行查询</a></li>
+			<li><a href="javascript:show_edit_form(-1);">新增业务</a></li>
+			<li>统计分析</li>
+			<li><a href="/help">帮助</a></li>
+		</ul>
+	</div>
+	<table width="100%">
+		<tr>
+			<td>{% block main_contents%} {% endblock %}</td>
+		</tr>
+	</table>
+{% endblock %}
+

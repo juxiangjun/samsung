@@ -1,0 +1,154 @@
+{% load i18n %} 
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="/static/js/jquery-1.8.3.js"></script>
+	<script src="/static/js/jquery-ui-1.9.2.custom.js"></script>
+	<link rel="stylesheet" href="/static/css/jquery-ui-1.9.2.custom.min.css" type="text/css"/>
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+	<script>
+	
+		$(function() {
+			$("#id_purchase_date").datepicker({dateFormat:"yy-mm-dd"});
+			$("#id_sale_date").datepicker({dateFormat:"yy-mm-dd"});
+			$("#id_return_date").datepicker({dateFormat:"yy-mm-dd"});
+		});
+		function add_partner(id, new_id){
+			var div_id = '#div_'+new_id;
+			if ($(div_id).css("display") == 'none'){
+				$('#'+id).hide();
+				$(div_id).show();
+				$('#id_new_'+new_id).focus();
+				$('#img_'+new_id).hide();
+			} else {
+				$('#'+id).show();
+				$(div_id).hide();
+				$('#img_'+new_id).show();
+			}
+		}
+
+		function save_partner(url, value, id) {
+			$.post(url,{'name':value},function(a){
+				html = $('#id_'+id).html();
+				html = html + '<option value='+value+" selected>"+value+'</option>'
+				$('#id_'+id).html(html);
+				$('#id_'+id).show();
+				$('#div_'+id).hide();
+				$('#img_'+id).show();
+			});
+		}
+		function save_supplier(){
+			var value = $('#id_new_supplier').val();
+			if (value == null || value.length<1){
+				alert('{% trans "common.empty_value" %}');
+			} else {
+				var url = '/save_supplier'
+				save_partner(url, value, 'supplier');
+			}
+		}
+
+		function save_customer(){
+			var value = $('#id_new_customer').val();
+			if (value == null || value.length<1){
+				alert('{% trans "common.empty_value" %}');
+			} else {
+				var url = '/save_customer'
+				save_partner(url, value, 'customer');
+			}
+		}
+
+		function save_employee(){
+			var value = $('#id_new_employee').val();
+			if (value == null || value.length<1){
+				alert('{% trans "common.empty_value" %}');
+			} else {
+				var url = '/save_employee'
+				save_partner(url, value, 'employee');
+			}
+		}
+	</script>
+</head>
+<body>	
+<form id="frmSale">
+	{{ form.id }}
+	{{ form.emp_id }}
+	<input type="hidden" name="show_main" value="0"/>
+	<table>
+		<tr>
+			<td>{{ form.supplier.label }} :</td> <td> {{ form.supplier }} 
+				<div id="div_supplier" style="display:none"> 
+					{{ form.new_supplier }}
+				<a href="javascript:save_supplier()">
+					<img id="img_save_supplier" style="display:inline" src="/static/images/save.png"/></a> 
+				</div>
+				<a href="javascript:add_partner('id_supplier','supplier')">
+				<img id="img_supplier" style="display:inline" src="/static/images/add.png"/></a> 
+			</td>
+			<td>{{ form.model.label }} :</td> <td> {{ form.model}}</td>
+			<td>{{ form.serial_number.label }} :</td> <td> {{ form.serial_number}}</td>
+		</tr>
+		<tr>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td>{{ form.employee.label }} :</td> <td> {{ form.employee}} 
+				<div id="div_employee" style="display:none"> 
+					{{ form.new_employee}}
+					<a href="javascript:save_employee()">
+						<img id="img_save_employee" src="/static/images/save.png"/> </a>
+				</div>
+				<a href="javascript:add_partner('id_employee', 'employee')">
+					<img id="img_employee" src="/static/images/add.png"/> </a>
+				</td>
+			<td>{{ form.purchase_date.label }} :</td> <td> {{ form.purchase_date}}</td>
+			<td>{{ form.cost.label }} :</td> <td> {{ form.cost}}</td>
+		</tr>
+		<tr>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td>{{ form.customer.label }} :</td> <td> {{ form.customer}}
+				<div id="div_customer" style="display:none"> 
+					{{ form.new_customer}}
+					<a href="javascript:save_customer()">
+						<img id="img_save_customer" src="/static/images/save.png"/> </a> 
+				</div>
+				<a href="javascript:add_partner('id_customer','customer')">
+					<img id="img_customer" src="/static/images/add.png"/> </a> 
+				</td>
+			<td>{{ form.sale_date.label }} :</td> <td> {{ form.sale_date}}</td>
+			<td>{{ form.sale_price.label }} :</td> <td> {{ form.sale_price}}</td>
+		</tr>
+		<tr>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td>{{ form.ap_amount.label }} :</td> <td> {{ form.ap_amount}}</td>
+			<td>{{ form.return_date.label }} :</td> <td> {{ form.return_date}}</td>
+			<td>{{ form.gross_profit.label }} :</td> <td> {{ form.gross_profit}}</td>
+		</tr>
+		<tr>
+			<td>{{ form.status.label }} :</td> <td colspan="5"> {{ form.status}}</td>
+		</tr>
+		<tr>
+			<td colspan="6"></td>
+		</tr>
+		<tr>
+			<td colspan="6">{% trans "sale.comment"%} </td>
+		</tr>
+		<tr>
+			<td colspan="6">{{form.comment}} </td>
+		</tr>
+		<tr>
+			<td colspan="6" align="center">
+				<input type="button" class="submit" onclick="save_sale_item(1)" 
+					value="{% trans "common.save"%}"/>
+				<input type="button" class="submit" onclick="save_sale_item(0)" 
+					value="{% trans "common.save_new"%}"/>
+			</td>
+		</tr>
+
+	<table>
+</form>
+</body>
+</html>

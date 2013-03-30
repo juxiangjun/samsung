@@ -1,0 +1,53 @@
+{% load i18n %} 
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">
+	<tr><td colspan="16"></td></tr>
+	<tr>
+		<th>ID</th>
+		<th>{% trans "sale.employee" %}</th>
+		<th>{% trans "sale.supplier" %}</th>
+		<th>{% trans "sale.model" %}</th>
+		<th>{% trans "sale.serial_number" %}</th>
+		<th>{% trans "sale.purchase_date" %}</th>
+		<th>{% trans "sale.cost" %}</th>
+		<th>{% trans "sale.customer" %}</th>
+		<th>{% trans "sale.sale_date" %}</th>
+		<th>{% trans "sale.sale_price" %}</th>
+		<th>{% trans "sale.ap_amount" %}</th>
+		<th>{% trans "sale.return_date" %}</th>
+		<th>{% trans "sale.gross_profit" %}</th>
+		<th>{% trans "sale.comment" %}</th>
+		<th>{% trans "sale.status" %}</th>
+		<th>{% trans "common.operator" %}</th>
+	</tr>
+	{% if not saleList %}
+		<tr><td colspan="15">{% trans "common.no_record" %}<td></tr>
+	{% endif %}
+	{% for sale in saleList %}
+	<tr>
+		<td> {{forloop.counter}} </td>
+		<td> {{sale.employee}} </td>
+		<td> {{sale.supplier}} </td>
+		<td> {{sale.model}} </td>
+		<td> {{sale.serial_number}} </td>
+		<td> {{sale.purchase_date}} </td>
+		<td> {{sale.cost}} </td>
+		<td> {{sale.customer}} </td>
+		<td> {{sale.sale_date}} </td>
+		<td> {{sale.sale_price}} </td>
+		<td> {{sale.ap_amount}} </td>
+		<td> {{sale.return_date}} </td>
+		<td> {{sale.gross_profit}} </td>
+		<td> {{sale.comments}} </td>
+		<td> 
+			{% if sale.status == '0'%}
+				{% trans "sale.status.not_settled"%}
+			{% else %}
+				{% trans "sale.status.settled"%}
+			{% endif %}
+		</td>
+		<td><a href="javascript:show_edit_form('{{sale.id}}')">{% trans "common.edit"%} </a> &nbsp; 
+			<a href="javascript:delete_sale_item('{{sale.id}}')">{% trans "common.delete"%}</a></td>
+	</tr>	
+	{% endfor %}
+</table>
+

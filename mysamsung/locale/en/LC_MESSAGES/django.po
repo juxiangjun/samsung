@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-05 14:56+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: public
+msgid "common.all"
+msgstr "All"
+
+msgid "common.errors.info"
+msgstr "Errors"
+
+msgid "common.operator"
+msgstr "Operator"
+
+msgid "common.add"
+msgstr "Add"
+
+msgid "common.delete"
+msgstr "Delete"
+
+msgid "common.edit"
+msgstr "Edit"
+
+msgid "common.save"
+msgstr "Save"
+
+msgid "common.save_new"
+msgstr "Save and new"
+
+
+
+msgid "common.date_range"
+msgstr "Date Range"
+
+msgid "common.no_record"
+msgstr "No Record."
+
+
+msgid "common.empty_value"
+msgstr "Empty value is now allowed here!"
+
+
+
+#: mysamsung/views.py:11 templates/index.html:1
+msgid "login.title"
+msgstr "Login"
+
+msgid "login.user_name"
+msgstr "User Name:"
+
+msgid "login.password"
+msgstr "Password:"
+
+msgid "main.title"
+msgstr "Yancheng Samsung Maintenance Center"
+
+
+msgid "main.query.start_date"
+msgstr "Start Date"
+
+msgid "main.query.end_date"
+msgstr "End Date"
+
+#: sales form
+msgid "sale.employee"
+msgstr "Employee"
+
+msgid "sale.model"
+msgstr "Model"
+
+msgid "sale.serial_number"
+msgstr "Serial Number"
+
+msgid "sale.supplier"
+msgstr "Supplier"
+
+msgid "sale.purchase_date"
+msgstr "Purchase Date"
+
+msgid "sale.cost"
+msgstr "Cost"
+
+msgid "sale.customer"
+msgstr "Customer"
+
+msgid "sale.sale_date"
+msgstr "Sale Date"
+
+msgid "sale.sale_price"
+msgstr "Sale Price"
+
+msgid "sale.ap_amount"
+msgstr "AP Amount"
+
+msgid "sale.gross_profit"
+msgstr "Gross Profit"
+
+msgid "sale.return_date"
+msgstr "Return Date"
+
+
+msgid "sale.comment"
+msgstr "Comment"
+
+msgid "sale.status"
+msgstr "Status"
+
+msgid "sale.form.title"
+msgstr "New/Edit Sale Item"
+
+msgid "sale.status.settled"
+msgstr "settled"
+
+msgid "sale.status.not_settled"
+msgstr "not settled"
+
+
+
+
+
+

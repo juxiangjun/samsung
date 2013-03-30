@@ -1,0 +1,19 @@
+{% load i18n %} 
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/static/css/public.css" type="text/css"/>
+</head>
+<body>
+<div class="filter">
+	{% if form.errors %}
+		{% for field in form %}
+			{% if field.errors%}
+			<dl><dd>{{field.label}}:</dd> <dd>{{ field.errors}}</dd> </dl>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</div>
+</body>
+</html>
+

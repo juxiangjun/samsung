@@ -1,0 +1,86 @@
+{% load i18n %} 
+<form id="frmQuery" method="post">
+		<input id="qry_employee" type="hidden" name="qry_employee"/>
+		<input id="qry_customer" type="hidden" name="qry_customer"/>
+		<input id="qry_supplier" type="hidden" name="qry_supplier"/>
+		<dl>
+			<dt> {% trans "common.date_range" %}: </dt>	
+				<dd style="text-align:top">
+				{% trans "main.query.start_date" %}:
+				</dd>
+				<dd>
+					<input type="text" class="text"  
+						style="width:160px;height:12px;line-height:12px" 
+						value =" {{ last_month }}"
+						id="qry_start_date" name="start_date"/>
+				</dd>
+				<dd>
+				{% trans "main.query.end_date" %}:
+				</dd>
+				<dd>
+					<input type="text" class="text" 
+						style="width:160px;height:12px" 
+						value =" {{ today }}"
+						id="qry_end_date" name="end_date"/>
+				</dd>
+				<dd> 状态
+				</dd>
+				<dd>
+					<select name="qry_status" class="cmf-skinned-select" style="width:100px;height:28px">
+						<option value="0">未结算 </option> 
+						<option value="1">已结算 </option> 
+					</select>
+				</dd>
+		</dl>
+		<dl>
+			<dt> {% trans "sale.employee" %}: </dt>	
+			<dd>
+				<div>
+					<a href="javascript:set_filter('link_employee_all', '0', 'employee');" 
+						id = "link_employee_all"
+						name="lbl_employee" 
+						class="lbl_selected"> {% trans "common.all"%}</a></div></dd>
+			{% for employee in employeeList %}
+				<dd>
+					<div> 
+						<a href="javascript:set_filter('link_{{employee.id}}', '{{ employee.name }}', 'employee')"
+								id = "link_{{employee.id}}"
+								name="lbl_employee">{{ employee.name }}</a>
+					</div>
+				</dd>
+			{% endfor %}	
+		</dl>
+
+		<dl>
+			<dt align="right"> {% trans "sale.customer" %}: </dt>	
+			<dd>
+				<div><a 
+					id="link_customer_all" 
+					href="javascript:set_filter('link_customer_all', '0', 'customer')"
+					name="lbl_customer"
+					class="lbl_selected">{% trans "common.all"%}</a></div></dd>
+				{% for customer in customerList %}
+				<dd> 
+					<div>
+						<a 
+							id = "link_{{customer.id}}"
+							name="lbl_customer" 
+							href="javascript:set_filter('link_{{customer.id}}','{{customer.name}}','customer');">{{ customer.name }}</a></div></dd>
+				{% endfor %}	
+		</dl>
+		<dl>
+			<dt align="right"> {% trans "sale.supplier" %}: </dt>	
+			<dd> 
+				<a 
+					id = "link_supplier_all" name = "lbl_supplier" class="lbl_selected"
+					href="javascript:set_filter('link_supplier_all','0','supplier')" >{% trans "common.all"%}</a>
+				{% for supplier in supplierList %}
+					<dd> <div>
+						<a  id="link_{{supplier.id}}" name="lbl_supplier"
+							href="javascript:set_filter('link_{{supplier.id}}','{{supplier.name}}','supplier')">{{ supplier.name }}</a></div></dd>
+				{% endfor %}	
+			</dd>
+		</dl>
+
+	</form>
+

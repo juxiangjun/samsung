@@ -1,0 +1,25 @@
+{% load i18n %} 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="/static/js/jquery-1.8.3.js"></script>
+	<script src="/static/js/jquery-ui-1.9.2.custom.js"></script>
+	<link rel="stylesheet" href="/static/css/jquery-ui-1.9.2.custom.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/public.css" type="text/css"/>
+	{% block user_script %} {% endblock %}
+	{% block user_css %} {% endblock %}
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+	<div id="hld">
+		<div class="wrapper"> 
+			{% block header %}{% endblock %}
+			<div class="block">
+				{% block content %}{% endblock %}
+				{% block footer %} {% endblock %} 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

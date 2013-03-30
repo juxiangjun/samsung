@@ -1,0 +1,18 @@
+{% extends "content.html" %}
+{% load i18n %} 
+{% block user_script %}
+	<script src="/static/js/main.js"></script>
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+{% endblock%}
+{% block title %}{% trans "main.title" %} {% endblock %}
+{% block main_contents %}
+<div class="filter">
+	{% include "query_form.html" %}
+</div>
+
+<div class="block" id="div_query_result">
+	{% include "query_result.html" %}
+</div>
+<div id="dlgEditForm" style="display:none" title="{% trans "sale.form.title"%}"> </div>
+<div id="dlg_errors" style="display:none" title="{% trans "common.errors.info"%}"></div>
+{% endblock%}

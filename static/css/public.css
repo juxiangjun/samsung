@@ -1,0 +1,56 @@
+@charset "utf-8";
+.lbl_selected {
+	background-color: #888888;
+	padding: 3px;
+	color: #FFFFFF;
+}
+
+.filter {
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.filter dl {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	clear: both;
+	padding: 0px 0;
+}
+
+.filter dt,dd {
+	height: 30px;
+	display: block;
+	float: left;
+	width: auto;
+	padding: 0;
+	margin: 2px 0;
+	vertical-align:text-bottom;	
+}
+
+.filter dt {
+	height: 30px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-right: 10px;
+	font-weight: bold;
+	color: #333333;
+	width: 88px;
+	text-align:right;	
+}
+
+.filter dd {
+	margin-right: 10px;
+}
+
+.filter a {
+	cursor: pointer;
+	padding:3px;
+}
+
+.filter a:hover {
+	color: #FFFFFF;
+	text-decoration:none;
+	background-color: #AE1319;
+}
